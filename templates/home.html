@@ -1,28 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-	{% for post in posts %}
-	<article class="media content-section">
-	  <div class="media-body">
-	    <div class="article-metadata">
-	      <h5 class="mr-2">{{ post.position }}</h5>
-	      <small class="text-muted">{{ post.location }}</small>
-	    </div>
-	    <h2><a class="article-title" href="{{ post.url }}">{{ post.company }}</a></h2>
-	    <p class="article-content">{{ post.industry }}</p>
-	  </div>
-	</article>
-	{% endfor %}
-	<div class="col-md-4">
+  <div style="width: 80%; margin: 50px auto;">
           <div class="content-section">
             <h3>Get Recommendations</h3>
-            <p class='text-muted'>Upload your resume to get personalised job recommedations
-            <!--   <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
-              </ul> -->
-              <form action = "http://localhost:5000/submitcv" method = "POST" 
+            <p class='text'>Upload your resume to get personalised job recommendations
+            <form action = "http://localhost:5000/recomm" method = "POST" 
               enctype = "multipart/form-data">
               <input type = "file" name = "file" />
               <input type = "submit"/>
@@ -30,4 +12,6 @@
             </p>
           </div>
         </div>
+     
+	
 {% endblock %}

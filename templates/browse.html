@@ -4,12 +4,13 @@
 	<article class="media content-section">
 	  <div class="media-body">
 	    <div class="article-metadata">
-	      <h5 class="mr-2">{{ post.position }}</h5>
+        <h2><a class="article-title" href="{{ post.url }}">{{ post.company }}</a></h2>
 	      <small class="text-muted">{{ post.location }}</small>
 	    </div>
-	    <h2><a class="article-title" href="{{ post.url }}">{{ post.company }}</a></h2>
+	     <h5 class="mr-2">{{ post.position }}</h5>
 	    <p class="article-content">{{ post.industry }}</p>
 	  </div>
 	</article>
-	{% endfor %}
+	{% endfor %}    
+	
 {% endblock %}

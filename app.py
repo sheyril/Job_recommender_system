@@ -11,10 +11,14 @@ with open('cv_data.csv') as f:
         for row in csv.DictReader(f, skipinitialspace=True)]
 
 
-@app.route('/')
-@app.route('/home')
+@app.route('/', methods=['GET', 'POST'])
+# @app.route('/home')
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html')
+
+@app.route('/browse')
+def browse():
+    return render_template('browse.html', posts=posts)
 
 @app.route('/about')
 def about():
@@ -34,9 +38,9 @@ def login():
     if form.validate_on_submit():
     	return render_template('login.html', title = 'Login', form=form)
 
-@app.route("/submitcv", methods=['POST'])
+@app.route("/recomm", methods=['POST'])
 def submitcv():
-	return render_template('recomendations.html')
+	return render_template('recomm.html')
     # print("reached endpoint...\n")
     # flash(f'Account created success')
     # try:

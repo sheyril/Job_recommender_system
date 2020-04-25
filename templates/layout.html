@@ -26,14 +26,14 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('browse') }}">Browse</a>
               <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
+           <!--  <div class="navbar-nav">
               <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
               <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-            </div>
+            </div> -->
           </div>
         </div>
       </nav>
@@ -52,26 +52,26 @@
           {% endwith %}
           {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="content-section">
             <h3>Get Recommendations</h3>
             <p class='text-muted'>Upload your resume to get personalised job recommedations
-              <!-- <ul class="list-group">
+               <ul class="list-group">
                 <li class="list-group-item list-group-item-light">Latest Posts</li>
                 <li class="list-group-item list-group-item-light">Announcements</li>
                 <li class="list-group-item list-group-item-light">Calendars</li>
                 <li class="list-group-item list-group-item-light">etc</li>
-              </ul> -->
-              <form action = "http://localhost:5000/submitcv" method = "POST" 
+              </ul>
+              <form action = "http://localhost:5000/recomm" method = "POST" 
               enctype = "multipart/form-data">
               <input type = "file" name = "file" />
               <input type = "submit"/>
               </form >
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
-    </main>
+    </main> 
 
 
     <!-- Optional JavaScript -->
