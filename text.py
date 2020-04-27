@@ -2,7 +2,7 @@ import textract
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
-file_path='ResumeAmitKumar.pdf'
+# file_path='ResumeAmitKumar.pdf'
 
 import nltk
 
@@ -16,4 +16,4 @@ def run_parse_resume(file_path):
     keywords = [word for word in tokens if not word in stop_words and not word in punctuations]
     print(keywords)
     
-run_parse_resume(file_path)
+# run_parse_resume(file_path)

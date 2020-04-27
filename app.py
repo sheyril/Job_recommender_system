@@ -1,5 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request, abort, jsonify, Response, send_file
 from flask_sqlalchemy import SQLAlchemy
+import sys
+import text as pr
 from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
 import csv
@@ -40,19 +42,16 @@ def login():
 
 @app.route("/recomm", methods=['POST'])
 def submitcv():
-	return render_template('recomm.html')
-    # print("reached endpoint...\n")
-    # flash(f'Account created success')
-    # try:
-    #     resume_file = request.files['file']
-    #     filename = resume_file.filename
-    #     selected_area = request.form['area'].lower()
+    try:
+        resume_file = request.files['file']
+        filename = resume_file.filename
+        # selected_area = request.form['area'].lower()
     #     cfg = "./indeed/{}/config.toml".format(selected_area)
-    #     print(filename)
-    #     sys.stdout.flush()
-    #     resume_file.save(".//server_files//" + filename, buffer_size=16384)
-    #     resume_file.close()
-    #     pr.run_parse_resume("./server_files/" + filename)
+        print(filename)
+        sys.stdout.flush()
+        resume_file.save(".//server_files//" + filename, buffer_size=16384)
+        resume_file.close()
+        pr.run_parse_resume("./server_files/" + filename)
     #     # print(len(query))
     #     # print(cfg)
     #     results = rk.run_ranker(cfg, "./server_files/resume-query.txt", 20)
@@ -63,9 +62,11 @@ def submitcv():
     #     # print(json_list)
     #     # response = {'message': 'resume received. file name = {}'.format(filename)}
     #     # print ("up here")
-    #     return Response(response=json_list, status=200, mimetype="application/json")
-    # except:
-    #     # print ("here!")
+        # return Response(response=json_list, status=200, mimetype="application/json")
+        return render_template('recomm.html')
+        # return 'ok'
+    except:
+        print ("here!")
     #     response = json.dumps([])
     #     return Response(response=response, status=200, mimetype="application/json")
 
